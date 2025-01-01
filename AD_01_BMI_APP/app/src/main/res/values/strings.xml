@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AD-01-BMI-APP</string>
+    <string name="enter_your_weight">Enter Your Weight</string>
+    <string name="enter_your_height_in_ft">Enter your Height (in Ft)</string>
+    <string name="enter_your_height_in_inch">Enter your Height (in Inch)</string>
+    <string name="calculate_bmi">Calculate BMI</string>
+    <string name="result">Result</string>
+    <string name="enter_your_age">Enter Your Age</string>
+    <string name="enter_your_weight_kg">Enter Your Weight (kg)</string>
+    <string name="enter_your_height_ft">Enter Your Height (ft)</string>
+    <string name="enter_your_height_inch">Enter Your Height (inch)</string>
+</resources>

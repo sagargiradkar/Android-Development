@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="buttonTextColor" format="color" />
+    <declare-styleable name="CustomTheme">
+        <attr name="colorBackground" format="color" />
+        <attr name="textColorButton" format="color"/>
+    </declare-styleable>
+
+</resources>
