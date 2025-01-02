@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Grid of Buttons -->
+    <GridLayout
+        android:id="@+id/buttonGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btnTranslate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Translate" />
+
+        <Button
+            android:id="@+id/btnAlpha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Alpha" />
+
+        <Button
+            android:id="@+id/btnRotate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Rotate" />
+
+        <Button
+            android:id="@+id/btnScale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:text="Scale" />
+
+    </GridLayout>
+
+    <!-- Text at Bottom -->
+    <TextView
+        android:id="@+id/txtAnim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WS Cube Tech"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="#0091EA"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginBottom="250dp" />
+
+</RelativeLayout>

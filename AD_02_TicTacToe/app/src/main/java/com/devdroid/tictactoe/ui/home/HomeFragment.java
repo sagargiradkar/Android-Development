@@ -20,18 +20,17 @@ public class HomeFragment extends Fragment {
     private String[] board = new String[9]; // Tic-Tac-Toe board state
     private Button[] buttons = new Button[9];  // Store references to the buttons
     private TextView statusText;
+    private Button resetButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        // Initialize the ViewModel
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
-        // Bind the layout
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Initialize status text
+        // Initialize UI elements
         statusText = binding.statusText;
+        resetButton = binding.resetButton;  // Reference to the reset button
 
         // Initialize buttons for the Tic-Tac-Toe grid
         buttons[0] = binding.button1;
@@ -44,13 +43,7 @@ public class HomeFragment extends Fragment {
         buttons[7] = binding.button8;
         buttons[8] = binding.button9;
 
-        // Set initial text for the game status
-        statusText.setText("Player 1's Turn (X)");
-
-        // Initialize the board array with empty strings
-        for (int i = 0; i < 9; i++) {
-            board[i] = "";
-        }
+        resetGame();  // Initialize game state
 
         // Set onClickListener for each button
         for (int i = 0; i < 9; i++) {
@@ -58,17 +51,29 @@ public class HomeFragment extends Fragment {
             buttons[i].setOnClickListener(v -> onCellClick(index));
         }
 
+        // Set onClickListener for the reset button
+        resetButton.setOnClickListener(v -> resetGame());
+
         return root;
     }
 
-    // This method handles the logic for each cell click
+    private void resetGame() {
+        // Reset the board state
+        for (int i = 0; i < 9; i++) {
+            board[i] = "";
+            buttons[i].setText("");
+            buttons[i].setEnabled(true);
+        }
+        // Reset status and player turn
+        player1Turn = true;
+        statusText.setText("Player 1's Turn (X)");
+    }
+
     private void onCellClick(int index) {
-        // Don't allow overwriting an already clicked cell
         if (!board[index].equals("")) {
             return;
         }
 
-        // Update the button with the correct player's mark
         if (player1Turn) {
             buttons[index].setText("X");
             board[index] = "X";
@@ -79,20 +84,16 @@ public class HomeFragment extends Fragment {
             statusText.setText("Player 1's Turn (X)");
         }
 
-        // Switch turns
         player1Turn = !player1Turn;
 
-        // Check for a winner
         checkWinner();
     }
 
-    // This method checks if there's a winner
     private void checkWinner() {
-        // Define all possible winning combinations
         String[][] winPatterns = {
-                {"0", "1", "2"}, {"3", "4", "5"}, {"6", "7", "8"},  // Rows
-                {"0", "3", "6"}, {"1", "4", "7"}, {"2", "5", "8"},  // Columns
-                {"0", "4", "8"}, {"2", "4", "6"}                    // Diagonals
+                {"0", "1", "2"}, {"3", "4", "5"}, {"6", "7", "8"},
+                {"0", "3", "6"}, {"1", "4", "7"}, {"2", "5", "8"},
+                {"0", "4", "8"}, {"2", "4", "6"}
         };
 
         for (String[] pattern : winPatterns) {
@@ -100,15 +101,13 @@ public class HomeFragment extends Fragment {
             String b = board[Integer.parseInt(pattern[1])];
             String c = board[Integer.parseInt(pattern[2])];
 
-            // Check if all three cells in the pattern are the same and not empty
             if (!a.equals("") && a.equals(b) && b.equals(c)) {
-                statusText.setText("Player " + (a.equals("X") ? "1" : "2") + " Wins!");
-                disableBoard();  // Disable the board after a win
+                statusText.setText("Player " + (a.equals("X") ? "1" : "2") + " Wins !");
+                disableBoard();
                 return;
             }
         }
 
-        // Check for a draw (all cells filled but no winner)
         boolean isDraw = true;
         for (String cell : board) {
             if (cell.equals("")) {
@@ -117,11 +116,10 @@ public class HomeFragment extends Fragment {
             }
         }
         if (isDraw) {
-            statusText.setText("It's a Draw!");
+            statusText.setText("It's a Draw !");
         }
     }
 
-    // Disable all buttons after the game ends (win or draw)
     private void disableBoard() {
         for (Button button : buttons) {
             button.setEnabled(false);

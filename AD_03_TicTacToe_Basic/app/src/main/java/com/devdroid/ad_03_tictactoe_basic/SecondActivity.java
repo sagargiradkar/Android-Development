@@ -1,6 +1,8 @@
 package com.devdroid.ad_03_tictactoe_basic;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,19 @@ public class SecondActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent fromMain = getIntent();
+        String title = fromMain.getStringExtra("title");
+        String studentName = fromMain.getStringExtra("Student Name");
+        String greetMessage = fromMain.getStringExtra("message");
+        int rollNo = fromMain.getIntExtra("Roll No",0);
+
+        TextView txtStudentInfo = findViewById(R.id.txtStudentInfo);
+//        getSupportActionBar().setTitle(title);
+        txtStudentInfo.setText(title + "\nMessage ::" + greetMessage +"\nStudent Name ::"+ studentName + "\nRoll No ::" + rollNo);
+
+
+
+
     }
 }

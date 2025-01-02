@@ -1,6 +1,11 @@
 package com.devdroid.ad_04_splash_sreen_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +25,19 @@ public class SplashScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        TextView splashText = findViewById(R.id.splashText);
+        // Load the fade-in animation
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        splashText.startAnimation(fadeIn);
+
+        // Navigate to the Main Activity after a delay
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent iHome = new Intent(SplashScreen.this,MainActivity.class);
+                startActivity(iHome);
+                finish();
+            }
+        },5000);
     }
 }
