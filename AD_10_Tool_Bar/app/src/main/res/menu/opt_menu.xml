@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/opt_new"
+        android:icon="@drawable/baseline_create_new_folder_24"
+        android:title="New"
+        app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/opt_open"
+        android:title="Open"
+        android:icon="@drawable/baseline_folder_open_24"
+        app:showAsAction="collapseActionView"
+        />
+    <item
+        android:id="@+id/opt_save"
+        android:title="Save"
+        app:showAsAction="collapseActionView"
+        android:icon="@drawable/baseline_save_as_24"
+        />
+        />
+
 
 </menu>
