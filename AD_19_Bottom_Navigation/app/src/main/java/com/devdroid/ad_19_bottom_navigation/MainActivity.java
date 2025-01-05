@@ -54,6 +54,16 @@ BottomNavigationView bnView;
     public void loadFrag(Fragment fragment,boolean flag){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+
+       //
+//        Bundle bundle = new Bundle();
+//        bundle.putString("Arg1","Raman");
+//        bundle.putInt("Arg2",7);
+//
+//        fragment.setArguments(bundle);
+
+
+
         if(flag)
             ft.add(R.id.container, fragment);
         else
