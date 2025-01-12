@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnShowScreenshot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Latest Screenshot"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Border wrapper for ImageView -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="100dp"
+            android:background="@color/white">
+
+            <!-- Main ImageView -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:autofillHints="Image"
+                android:background="@color/white"
+                android:scaleType="centerCrop" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnUploadToFirebase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check"
+            android:layout_marginTop="16dp" />
+
+        <!-- API Response TextView -->
+        <TextView
+            android:id="@+id/textViewResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type of News "
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@color/colorLightGray"
+            android:gravity="center" />
+
+        <!-- Summary TextView -->
+        <TextView
+            android:id="@+id/textViewSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Summary will be shown here"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@color/colorLightGray"
+            android:gravity="center" />
+    </LinearLayout>
+</ScrollView>

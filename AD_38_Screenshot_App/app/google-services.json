@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "262639461551",
+    "project_id": "screenshot-6b1cd",
+    "storage_bucket": "screenshot-6b1cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262639461551:android:7e79737148cdbf3a51605a",
+        "android_client_info": {
+          "package_name": "com.devdroid.screenshotapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF5WIIT7MAHGx_SYDe-gPRyBZuKlWiB5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
